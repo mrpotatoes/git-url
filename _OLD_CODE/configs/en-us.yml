@@ -1,0 +1,3 @@
+# Language stuff goes in here. Useful for simple translation services.
+---
+  missing-provider: Sorry, no git provider by that hostname. Please follow instructions to add custom provider.

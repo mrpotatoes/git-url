@@ -1,0 +1,32 @@
+{
+  "name": "@mrpotatoes/git-url",
+  "version": "1.0.0",
+  "description": "An easy way to open a git url to either to the pull request, commits, branches, browse pages using one command.",
+  "main": "index.js",
+  "bin": {
+    "git-url": "./index.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "mocha --require ./configs/test-config.js --recursive './**/*.spec.js' --watch --reporter mocha-clearscreen-reporter",
+    "test:plugins": "mocha --require ./configs/test-config.js --recursive './tests/lib/plugins.spec.js' --watch --reporter mocha-clearscreen-reporter",
+    "test:adts": "mocha --require ./configs/test-config.js --recursive './tests/adt/*.spec.js' --watch --reporter mocha-clearscreen-reporter"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "crocks": "^0.12.3",
+    "js-yaml": "^3.13.1",
+    "mocha": "^6.2.0",
+    "open": "^6.4.0",
+    "pratica": "^1.6.1",
+    "sanctuary": "^2.0.0"
+  },
+  "devDependencies": {
+    "mocha-clearscreen-reporter": "^1.0.1"
+  }
+}
