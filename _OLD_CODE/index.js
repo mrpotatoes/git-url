@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+// #!/usr/bin/env node
 
 console.clear('')
 
@@ -8,7 +8,7 @@ const { open, gitRemote, providedFlags } = require('./lib/side-effects')
 const provider = providers(gitRemote())
 
 if (!provider) {
-  console.log('')
+  console.log('There was no provider, this does not work, sorry.')
   process.exit(0)
 }
 

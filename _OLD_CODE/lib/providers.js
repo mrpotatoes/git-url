@@ -23,6 +23,8 @@ const providers = (gitUrl) => {
   // Get the single git provider
   const providerFn = providers[providerHost(gitUrl)] ? providers[providerHost(gitUrl)] : false
 
+  console.log(gitUrl)
+
   // This is curryed so setup the first param so it can be used down the line.
   return providerFn(providerHost(gitUrl))
 }
