@@ -1,5 +1,7 @@
 # @mrpotatoes/git-url
 
+`"outFile"` ->   https://stackoverflow.com/questions/34474651/typescript-compile-to-single-file
+
 An easy way to open a git url to either to the pull request, commits, branches, browse pages using one command.
 
 Just goto to any directory `git` managed directory (a directory with `.git` somewhere in it's parents) and run `git-url`.

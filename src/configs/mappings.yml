@@ -1,0 +1,26 @@
+---
+# Default list of llowed flags. The extras come from aliases by provider hosts.
+flags:
+  - pr
+  - commits
+  - rel
+  - branches
+
+# Providers
+providers:
+  github.com:
+    aliases:
+      # Aliases and overrides
+      pr: 'pulls'
+      pull-requests: 'pulls'
+      commits: 'commits'
+      branches: 'branches'
+      rel: 'releases'
+
+  bitbucket.org:
+    aliases:
+      # Aliases and overrides
+      pr: 'pull-requests'
+      commits: 'commits'
+      branches: 'branches'
+      rel: 'releases'
