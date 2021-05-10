@@ -3,29 +3,30 @@
 import { generic } from './plugins'
 import { userDefined } from './side-effects'
 import { providerHost } from './paths'
+import { ProviderConfig } from '../types'
 
 // Should be at the very least urnary.
-const knownProviders = () => ({
+const knownProviders = (): ProviderConfig => ({
   'github.com': generic,
   'gitlab.com': generic,
   'bitbucket.org': generic,
 })
 
 // This should be singular since it evaluates to a single provider.
-export const providers = (gitUrl: string) => {
-  // TODO: Fix me, conflicts with the function name.
+// TODO: Return Maybe.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const providers = (gitUrl: string): any => {
   // It isn't breaking now but it is confusing.
-  const providers = {
+  const providers: ProviderConfig = {
     ...userDefined(),
     ...knownProviders()
   }
 
   // Get the single git provider
-  const providerFn = providers[providerHost(gitUrl)] ? providers[providerHost(gitUrl)] : false
+  // TODO: Make this a Maybe so I return the same object instead of function or false.
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  const providerFn = providers[providerHost(gitUrl)] ? providers[providerHost(gitUrl)] : () => { }
 
-  console.log(gitUrl)
-
-  // This is curryed so setup the first param so it can be used down the line.
+  // Also cleans up this code here.
   return providerFn(providerHost(gitUrl))
 }
-

@@ -2,9 +2,8 @@
 
 console.clear()
 
-import { providers } from './lib/providers';
-import { providedFlags } from './lib/flags'
-import { open, gitRemote } from './lib/side-effects'
+import { providers } from './lib/providers'
+import { gitRemote } from './lib/side-effects'
 
 const provider = providers(gitRemote())
 
@@ -13,7 +12,7 @@ if (!provider) {
   process.exit(0)
 }
 
-const links = provider(gitRemote(), providedFlags)
+const links = provider(gitRemote())
 console.log(links)
 
 // // Finally open the links.

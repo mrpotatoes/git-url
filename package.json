@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@bitauth/libauth": "^1.17.1",
+    "@types/js-yaml": "^3.10.0",
     "@types/node": "^15.0.2",
     "babel-jest": "^26.6.3",
     "chalk": "^4.1.1",
