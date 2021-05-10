@@ -1,11 +1,11 @@
 // TODO: A reader monad would most likely be best here. This way we can set the flags and
 // not have to get it from global state. Currently this is impossible to test otherwise.
-const { empty } = require('./utils')
-const { repoUrl } = require('./paths')
-const { providedFlags, addAlias, flags } = require('./flags')
+import { empty } from './utils'
+import { repoUrl } from './paths'
+import { providedFlags, addAlias, flags } from './flags'
 
 // A generic way to handle plugins
-const generic = provider => (gitUrl) => {
+export const generic = (provider: string) => (gitUrl: string): readonly string[] => {
   const baseRepoUrl = repoUrl(gitUrl)
   const links = [baseRepoUrl('')]
 
@@ -27,8 +27,4 @@ const generic = provider => (gitUrl) => {
   const uniqueUrls = [...new Set(flaggedLinks)]
 
   return uniqueUrls
-}
-
-module.exports = {
-  generic,
 }
