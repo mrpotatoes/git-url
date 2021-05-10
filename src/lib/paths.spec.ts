@@ -1,17 +1,10 @@
 import { andric } from './paths'
 import { URL } from 'url'
 import * as E from 'fp-ts/Either'
-import { pipe } from 'fp-ts/function'
+import { pipe, flow } from 'fp-ts/function'
 
 describe('./src/lib/paths.spec.js', () => {
   describe('providerHost()', () => {
-    test.skip('1', () => {
-      // const t = andric('https://github.com/heythere.nothing')
-      const t = andric('')
-
-      console.log(t)
-    })
-
     test.skip('2', () => {
       const unsafeHead = <A>(as: ReadonlyArray<A>): A => {
         if (as.length > 0) {

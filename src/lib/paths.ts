@@ -2,6 +2,7 @@
 // TODO: Most of these functions rely on the function above. Let's try to fix that.
 import { URL } from 'url'
 import { Either, tryCatch } from 'fp-ts/Either'
+import { flow } from 'fp-ts/function'
 
 // Get the provider host from the full git remote url.
 // TODO: This is temporary. Must return Left() or Right()
@@ -29,12 +30,10 @@ export const segments = (gitUrl: string): readonly string[] => (
     .split('/')
 )
 
-export const baseUrl = (gitUrl: string) => {
-  const pathParts = segments(gitUrl)
-  const base = `${providerHost(gitUrl)}/${pathParts.join('/')}`
-  const repoUrl = `https://${base}`
-
-  return repoUrl
-}
+export const baseUrl = (gitUrl: string) => flow(
+  segments,
+  (parts: readonly string[]) => `${providerHost(gitUrl)}/${parts.join('/')}`,
+  (base: string) => `https://${base}`
+)
 
 export const repoUrl = (gitUrl: string) => (path: string) => `${baseUrl(gitUrl)}/${path}`
