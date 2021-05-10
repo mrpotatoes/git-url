@@ -36,7 +36,8 @@
       "es2017"
     ],
     "types": [
-      "node"
+      "node",
+      "jest"
     ],
     "typeRoots": [
       "node_modules/@types",
