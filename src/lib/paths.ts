@@ -1,7 +1,7 @@
 // TODO: Determine if git@github.com:rametta/pratica.git remote urls should work
 // TODO: Most of these functions rely on the function above. Let's try to fix that.
 import { URL } from 'url'
-import { Either, left, right, tryCatch } from 'fp-ts/Either'
+import { Either, tryCatch } from 'fp-ts/Either'
 
 // Get the provider host from the full git remote url.
 // TODO: This is temporary. Must return Left() or Right()
@@ -13,13 +13,12 @@ export const providerHost = (gitUrl: string): string => {
   }
 }
 
-export const andric = (gitUrl: string): Either<string, string> => {
-  try {
-    return right(new URL(gitUrl).host)
-  } catch (error) {
-    return left('no')
-  }
-}
+export const andric = (gitUrl: string): Either<Error, string> => (
+  tryCatch(
+    () => new URL(gitUrl).host,
+    (e: any) => new Error(e.message)
+  )
+)
 
 // This will require some providerHost masaging.
 export const segments = (gitUrl: string): readonly string[] => (
