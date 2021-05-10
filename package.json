@@ -9,7 +9,7 @@
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "build": "tsc --build",
+    "build": "tsc --build; cp ./src/configs/*.yml ./build/main/configs",
     "clean": "tsc --build --clean",
     "dev": "tsnd --respawn ./src/index.ts --pr --commits --branches --browse",
     "build.old": "run-p build:*",
