@@ -1,7 +1,5 @@
 import { execSync } from 'child_process'
 import O from 'open'
-// const homeDir = require('os').homedir()
-// const path = `${homeDir}/.git-url/providers.js`
 
 export const openLink = (link: string) => { O(link) }
 export const open = (links: readonly string[]) => { links.forEach(openLink) }

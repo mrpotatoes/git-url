@@ -1,6 +1,6 @@
 // TODO: A reader monad would most likely be best here. This way we can set the flags and
 // not have to get it from global state. Currently this is impossible to test otherwise.
-import { empty } from './utils'
+import { isEmpty } from 'fp-ts/Array'
 import { repoUrl } from './paths'
 import { providedFlags, addAlias, flags } from './flags'
 
@@ -11,7 +11,7 @@ export const generic = (provider: string) => (gitUrl: string): readonly string[]
 
   // Railroad program this: https://blog.logrocket.com/elegant-error-handling-with-the-javascript-either-monad-76c7ae4924a1/
   // If no link then default to the default url.
-  if (empty(providedFlags())) {
+  if (isEmpty(providedFlags())) {
     return links
   }
 
