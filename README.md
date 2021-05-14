@@ -51,3 +51,4 @@ Only cares about the host and path segments. _Anything_ else should be ignored.
     * https://medium.com/@luijar/the-observable-disguised-as-an-io-monad-c89042aa8f31
 * State Monad
     * https://egghead.io/courses/state-monad-in-javascript
+* https://dev.to/gcanti/interoperability-with-non-functional-code-using-fp-ts-432e

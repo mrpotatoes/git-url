@@ -3,7 +3,7 @@ import { providers } from './providers'
 
 describe('./src/lib/providers.spec.js', () => {
   describe('providers = (gitUrl: string)', () => {
-    test('2', () => {
+    test.skip('2', () => {
       const links = providers('http://github.com')('http://github.com/mrpotatoes/git-url')
       console.log(links)
 
